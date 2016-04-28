@@ -12,6 +12,7 @@
 import Cell from './Cell'
 import Board from './../game/board'
 export default {
+  props: ['preset'],
   components: {
     Cell
   },
@@ -19,6 +20,7 @@ export default {
     let board = new Board()
     let dims = calculateRowsAndColumns()
     board.layout(dims.rows, dims.columns)
+    board.loadPreset(this.preset)
     return {
       board
     }

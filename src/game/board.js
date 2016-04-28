@@ -1,11 +1,19 @@
 import Cell from './cell'
+const presets = {
+  'glider':
+  [
+    [0, 0, 1],
+    [1, 0, 1],
+    [0, 1, 1]
+  ]
+}
 export default class Board {
   layout (amountOfRows = 50, amountOfColumns = 50, seed = null) {
     this.amountOfRows = amountOfRows
     this.amountOfColumns = amountOfColumns
     this.age = 0
-    this.seed = seed
     this.generateGrid()
+    this.seed(seed)
   }
   generateGrid () {
     this.grid = []
@@ -19,6 +27,21 @@ export default class Board {
         let cell = new Cell(row, column, isAlive, this)
         this.putCell(row, column, cell)
       }
+    }
+  }
+  seed (seed) {
+    if (seed) {
+      for (let row = 0; row < seed.length && row < this.amountOfRows; row++) {
+        let rowArr = seed[row]
+        for (let column = 0; column < rowArr.length && column < this.amountOfColumns; column++) {
+          this.getCell(row, column).isAlive = !!rowArr[column]
+        }
+      }
+    }
+  }
+  loadPreset (name) {
+    if (name) {
+      this.seed(presets[name])
     }
   }
   /**
