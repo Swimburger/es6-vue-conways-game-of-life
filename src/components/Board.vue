@@ -1,11 +1,8 @@
-<template>
-  <table>
-    <tr v-if="board.grid" v-for="row in board.grid">
-      <td v-for="cell in row">
-        <cell :cell="cell"></cell>
-      </td>
-    </tr>
-  </table>
+<template lang="pug">
+  table
+    tr(v-if="board.grid" v-for="row in board.grid")
+      td(v-for="cell in row")
+        cell(v-bind:cell="cell")
 </template>
 
 <script>
@@ -37,19 +34,18 @@ function calculateRowsAndColumns () {
   return {rows, columns}
 }
 </script>
-<style>
-table{
-  height: 100%;
-  width: 100%;
-  padding-bottom: 60px;
-  border-collapse: collapse;
-  background: #333;
-  overflow: hidden;
-}
+<style lang="sass">
+table
+  height: 100%
+  width: 100%
+  padding-bottom: 60px
+  border-collapse: collapse
+  background: #333
+  overflow: hidden
 
-table td{
-  border: 5px solid #999;
-  height: 20px;
-  width: 20px;
-}
+td
+  border: 5px solid #999
+  height: 20px
+  width: 20px
+
 </style>
