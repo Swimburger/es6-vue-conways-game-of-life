@@ -2,7 +2,7 @@
 
 > ES6 + Vue implementation of Conway's Game of Life
 
-*[DEMO](http://sniels.github.io/es6-vue-conways-game-of-life/)*
+*[DEMO](http://swimburger.github.io/es6-vue-conways-game-of-life/)*
 
 ## Build Setup
 
